@@ -1,0 +1,28 @@
+
+.container__header__full{
+    background-color: #212121;
+    .container__header{
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0.5rem 0;
+        .logo__header{
+            width: 70px;
+            border-radius: 50%;
+        }
+    }
+
+    .carrousel__header__info__{
+        background-color: rgb(215 20 20);
+        .carrousel__header__info{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.35rem 0;
+            .carrousel__header__info__text{
+                color: white;
+                font-size: 15px;
+                text-align: center;
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+
+
+.shop__container{
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    /* CARROUSEL PRINCIPAL */
+    .shop__container__carrousel{
+        width: 95%;
+        margin: 1.5rem auto;     
+        .info__image__carrousel{
+            border-radius: 20px;
+            display: block !important;
+            margin: 0 auto;
+       
+        }
+
+        .shop__main__carrousel{
+            .slick-slide{
+                border-radius: 20px;
+                overflow: hidden;
+            }
+            button.slick-arrow{
+                z-index: 10;
+                &::before{
+                    display: block;
+                    color: rgb(215, 20, 20);
+                    height: 28px;
+                    width: 28px;
+                    font-size: 28px;
+                }
+            }
+        }
+    
+        .slick-next{
+            right: -15px !important;
+        }
+    }
+
+
+
+    /* CATEGORIAS */
+    .shop__container__categories{
+        padding: 1.75rem 0;
+
+        .shop__container__categories__title{
+            margin: 0;
+            text-align: center;
+            padding: 1.65rem 0;
+        }
+
+        .shop__container__categories__images{
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+
+            .shop__container__categories__link{
+                overflow: hidden;
+                border-radius: 20px;
+                .shop__container__categories__image{
+                    transform: scale(1);
+                    transition: all 0.25s ease-in-out;
+                    border-radius: 20px;
+                    &:hover{
+                        transform: scale(1.05);
+                        box-shadow: 1px 4px 12px -4px rgb(0, 0, 0, .2);
+                    }
+                }
+            }
+        }
+
+        .shop__container__categories__showMore{
+            margin-top: 1rem;
+            display: flex;
+            place-content: center;
+            .shop__container__categories__showMore__link{
+                text-decoration: none;
+                font-size: 18px;
+                color: white;
+                background-color: rgb(190, 16, 16);
+                border-radius: 20px;
+                padding: 6px 16px;
+                width: max-content;
+            }
+        }
+    }
+
+
+    .shop__container__image__full{
+        .shop__container__image__item{
+            width: 100%;
+            border-radius: 20px;
+        }
+    }
+}
