@@ -22,7 +22,6 @@
     "react-bootstrap": "^2.1.2",
     "react-dom": "^18.2.0",
     "react-slick": "^0.30.3",
-    "remix-utils": "^8.7.0",
     "sass": "^1.87.0",
     "slick-carousel": "^1.8.1",
     "zustand": "^5.0.4"
