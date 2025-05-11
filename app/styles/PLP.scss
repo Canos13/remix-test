@@ -159,27 +159,31 @@
     @include mobile__1024{
         flex-direction: column;
     }
-    .product__list__filter{
-        min-width: 200px;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-
-        .product__list__item{
-            color: #000000;
-            border-radius: 16px;
-            padding: 4px 12px;
-            &:hover{
-                text-decoration: underline;
-            }
+}
+.product__list__filter{
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    .product__list__filter__title{
+        @include mobile__1024{
+            display: none;
         }
+    }
+    .product__list__item{
+        color: #000000;
+        border-radius: 16px;
+        padding: 4px 12px;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 
-        .product__list__item__active{
-            background-color: #313232;
-            color: white !important;
-            &:hover{
-                text-decoration: unset;
-            }
+    .product__list__item__active{
+        background-color: #313232;
+        color: white !important;
+        &:hover{
+            text-decoration: unset;
         }
     }
 }

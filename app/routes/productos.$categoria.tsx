@@ -5,6 +5,8 @@ import { dummyData, Product, type Category } from "../context/productStore";
 import ProductCard from "~/components/Product";
 import Filters from "~/components/Filters";
 import { AllCategories } from "./productos._index";
+import { useWidth } from "~/hook/useViewport";
+import { Popover } from "antd";
 
 type dataLoader = {
     category: Category,
@@ -41,6 +43,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export default function PLP() {
     const {category,allCategories, slug} = useLoaderData<typeof loader>() as dataLoader;
 
+
+    const { isWidth } = useWidth(1024)
+
     return (
         <div className="py-6 main__container__products">
 
@@ -54,7 +59,13 @@ export default function PLP() {
             <h1 className="text-3xl font-bold mb-4">{category?.name} ({category?.products?.length})</h1>
 
             <div className="product__list__main">
-                <Filters slug={slug} allCategories={allCategories} />
+                {
+                    isWidth 
+                        ? <Popover placement="bottom" content={ <Filters slug={slug} allCategories={allCategories} /> } trigger="click">
+                              <button className="filters__mobile__btn">Filtros</button>
+                           </Popover> 
+                        : <Filters allCategories={allCategories} />
+                }
 
                 <div className="product__list__section__container">
                     {category?.products?.map((product) => (

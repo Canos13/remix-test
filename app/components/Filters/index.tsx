@@ -6,7 +6,7 @@ const Filters = ({allCategories, slug = ""}: {allCategories: AllCategories[], sl
    
     return (
         <div className="product__list__filter">
-            <h4>Filtros</h4>
+            <h4 className="product__list__filter__title">Filtros</h4>
             {
                 allCategories?.map(categories => (
                     <Link

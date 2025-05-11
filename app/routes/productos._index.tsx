@@ -4,6 +4,8 @@ import type { MetaFunction } from "@remix-run/node";
 import { dummyData, Product } from "../context/productStore";
 import ProductCard from "~/components/Product";
 import Filters from "~/components/Filters";
+import { useWidth } from "~/hook/useViewport";
+import { Popover } from "antd";
 
 export type AllCategories = {
     id: string,
@@ -32,6 +34,8 @@ export async function loader() {
 export default function PLP() {
     const { allProducts, allCategories } = useLoaderData<typeof loader>() as dataLoader;
 
+    const { isWidth } = useWidth(1024)
+
     return (
         <div className="py-6 main__container__products">
             <div className="product__list__breadcrumb" >
@@ -43,7 +47,14 @@ export default function PLP() {
             <h1 className="text-3xl font-bold mb-4">Todos los productos ({allProducts.length})</h1>
 
             <div className="product__list__main">
-                <Filters allCategories={allCategories} />
+                {
+                    isWidth 
+                        ? <Popover placement="bottom" content={ <Filters allCategories={allCategories} /> } trigger="click">
+                              <button className="filters__mobile__btn">Filtros</button>
+                           </Popover> 
+                        : <Filters allCategories={allCategories} />
+                }
+                
 
                 <div className="product__list__section__container">
                     {allProducts.map((product) => (
