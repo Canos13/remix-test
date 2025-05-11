@@ -1,31 +1,29 @@
 
-import { useEffect, useMemo } from 'react';
 import { Badge, Tag } from 'antd';
 import { Product } from '~/context/productStore';
+import { useCartStore } from '../../context/cartStore';
+import { showMessage } from '~/utils/messages';
+import { useProductDiscount } from '~/hook/useProductDiscount';
 
-const ProductCard = ({ product, addToCart }: { product: Product,addToCart: (product: Product) => void }) => {
-    
-    useEffect(() => {
-        console.log("product: ",product)
-    }, [])
-    
-    const { hasDiscount, discount } = useMemo(() => {
-        let hasDiscount = false;
-        let discount = 0;
-        if (product.listPrice > product.price) {
-            hasDiscount = true;
-            discount = Math.round(100 - ((product.price * 100) / product.listPrice));
-        }
+const ProductCard = ({ product }: { product: Product, }) => {
+    const addToCart = useCartStore(state => state.addToCart);
+    const {  hasDiscount,  discount, } = useProductDiscount(product);
 
-        return { hasDiscount, discount };
-    }, [product.listPrice, product.price]);
+    const handleAddToCart = (product: Product) => {
+        if (!product.availability) return;
+        addToCart(product);
+        showMessage({
+            text: "Producto Agregado al carrito",
+            type: "SUCCESS"
+        })
+    };
 
     return (
         <div className="product__card__item">
             <div className='product__card__item__imageContainer'>
                 {
                     hasDiscount && <div className='product__card__item__badge__discount'>
-                        <Badge count={`-${discount}%`} /> 
+                        <Badge count={`-${discount}%`} />
                     </div>
                 }
                 <img
@@ -42,24 +40,21 @@ const ProductCard = ({ product, addToCart }: { product: Product,addToCart: (prod
             </div>
             <div className="product__card__item__info">
                 <h3 className="product__card__item__info__productName">{product?.name}</h3>
-   
+
                 {
-                    product?.stock 
+                    product?.stock
                         ? <Tag className="product__card__item__info__stock" color="success"> Stock: {product?.stock}</Tag  >
                         : <Tag className="product__card__item__info__stock" color="error"> Sin Stock</Tag>
-                    
+
                 }
-             
-               
+
+
                 <div className='product__container__prices'>
                     <span className={`font-bold product__price ${hasDiscount ? "product__price__hasDiscount" : ""}`}>${product?.price}</span>
-                    { hasDiscount && <span className="product__listPrice">${product?.listPrice}</span> }
+                    {hasDiscount && <span className="product__listPrice">${product?.listPrice}</span>}
                 </div>
                 <button
-                    onClick={() =>{ 
-                        if(!product?.availability) return
-                        addToCart(product)
-                    }}
+                    onClick={() => handleAddToCart(product)}
                     className={
                         `px-4 py-2 text-white button__add__to__cart
                         ${product?.availability
@@ -70,7 +65,7 @@ const ProductCard = ({ product, addToCart }: { product: Product,addToCart: (prod
                 >
                     {product?.availability ? "Agregar" : "No disponible"}
                 </button>
-    
+
             </div>
         </div>
     );

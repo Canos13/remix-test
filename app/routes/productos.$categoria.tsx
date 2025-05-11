@@ -41,10 +41,6 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export default function PLP() {
     const {category,allCategories, slug} = useLoaderData<typeof loader>() as dataLoader;
 
-    const handleAddToCart = (product: Product) => {
-        console.log("Producto agregado al carrtio:", product)
-    };
-
     return (
         <div className="py-6 main__container__products">
 
@@ -65,7 +61,6 @@ export default function PLP() {
                         <ProductCard
                             key={product?.name}
                             product={product}
-                            addToCart={handleAddToCart}
                         />
                     ))}
                 </div>

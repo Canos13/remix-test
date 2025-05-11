@@ -2,6 +2,7 @@
 import { Link } from "@remix-run/react";
 import Carrousel from '../Carrousel'
 import type { Settings } from "react-slick";
+import MiniCart from "../Minicart";
 
 
 const Header = () => {
@@ -26,6 +27,9 @@ const Header = () => {
                     <Link className="link__logo__header" to="/" prefetch="intent">
                         <img className='logo__header' src="/arquivos/logo.png" alt="Logo" />
                     </Link>
+                </div>
+                <div>
+                    <MiniCart /> 
                 </div>
             </section>
         </header>

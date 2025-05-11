@@ -1,4 +1,3 @@
-/* import { create } from 'zustand'; */
 
 export type Product = {
     name: string;
@@ -11,6 +10,7 @@ export type Product = {
     isNational: boolean;
     shippingCost: number;
     sapCode: string;
+    id: number
 };
 
 export type Category = {
@@ -27,6 +27,7 @@ export const dummyData: Category[] = [
             {
                 name: "Paracetamol 500mg Alivio del dolor y la fiebre Alivio del dolor y la fiebre Alivio",
                 description: "Alivio del dolor y la fiebre",
+                id: 34232,
                 listPrice: 20.00,
                 price: 15.00,
                 image: "https://www.tempra.com.mx/static/754245cbb05fab5a0992a38575208e59/ec333/tempra-500mg-20t_i.png",
@@ -38,6 +39,7 @@ export const dummyData: Category[] = [
             },
             {
                 name: "Ibuprofeno 400mg",
+                id: 95678,
                 description: "Antiinflamatorio y analgésico",
                 listPrice: 25.00,
                 price: 25.00,
@@ -62,6 +64,7 @@ export const dummyData: Category[] = [
                 image: "https://resources.sanborns.com.mx/imagenes-sanborns-ii/1200/7501349021570.jpg?scale=500&qlty=75",
                 availability: true,
                 stock: 100,
+                id: 4645,
                 isNational: false,
                 shippingCost: 20,
                 sapCode: "MED-003"
@@ -74,6 +77,7 @@ export const dummyData: Category[] = [
                 image: "https://www.fahorro.com/media/catalog/product/7/5/7502223708921.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg",
                 availability: false,
                 stock: 0,
+                id: 58658,
                 isNational: false,
                 shippingCost: 25,
                 sapCode: "MED-004"
@@ -88,6 +92,7 @@ export const dummyData: Category[] = [
                 name: "Loratadina 10mg",
                 description: "Alivio de alergias y rinitis",
                 listPrice: 18.00,
+                id: 56767,
                 price: 18.00,
                 image: "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1282883_A_1280_AL.jpg",
                 availability: true,
@@ -105,6 +110,7 @@ export const dummyData: Category[] = [
                 availability: true,
                 stock: 180,
                 isNational: true,
+                id: 86723,
                 shippingCost: 10,
                 sapCode: "MED-006"
             }
@@ -122,6 +128,7 @@ export const dummyData: Category[] = [
                 image: "https://resources.sanborns.com.mx/imagenes-sanborns-ii/1200/7502216792920.jpg?scale=500&qlty=75",
                 availability: true,
                 stock: 300,
+                id: 563683,
                 isNational: true,
                 shippingCost: 12,
                 sapCode: "MED-007"
@@ -135,6 +142,7 @@ export const dummyData: Category[] = [
                 availability: false,
                 stock: 0,
                 isNational: false,
+                id: 896765,
                 shippingCost: 15,
                 sapCode: "MED-008"
             }
@@ -142,10 +150,3 @@ export const dummyData: Category[] = [
     }
 ]
 
-/* export const useProductStore = create<ProductStore>((set) => ({
-    categories: [],
-    fetchProducts: () => {
-        set({ categories: dummyData });
-    },
-}));
- */
