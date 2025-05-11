@@ -28,7 +28,10 @@ const Header = () => {
                         <img className='logo__header' src="/arquivos/logo.png" alt="Logo" />
                     </Link>
                 </div>
-                <div>
+                <div className="header__actions">
+                    <div>
+                        <button className="header__btn__login">Iniciar Sesión</button>
+                    </div>
                     <MiniCart /> 
                 </div>
             </section>

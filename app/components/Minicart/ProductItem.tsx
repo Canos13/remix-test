@@ -21,7 +21,7 @@ const ProductItem = (item: CartItem) => {
 
     return (
         <div className="minicart__content__list__item" >
-            <div>
+            <div style={{ position: "relative" }} >
                 {
                     hasDiscount && <div className='product__card__item__badge__discount'>
                         <Badge count={`-${discount}%`} />

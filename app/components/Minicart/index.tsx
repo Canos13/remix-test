@@ -1,17 +1,14 @@
-import { Drawer, Badge, Button, List, Avatar, InputNumber } from 'antd';
+import { Drawer, Badge } from 'antd';
 import { useCartStore } from '../../context/cartStore';
 import { useState } from 'react';
-import { Product } from '~/context/productStore';
 import ProductItem from './ProductItem';
 
 const MiniCart = () => {
     const [open, setOpen] = useState(false);
-    /* const {  hasDiscount,  discount, } = useProductDiscount(product); */
     const {
         cart,
         totalItems,
         totalPrice,
-        updateQuantity
     } = useCartStore();
 
     return (
@@ -27,6 +24,7 @@ const MiniCart = () => {
                 onClose={() => setOpen(false)}
                 open={open}
                 width={400}
+                className='minicart__drawer'
             >
                 <div className='minicart__content' >
                     <div className='minicart__content__list__items'>
