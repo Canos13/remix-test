@@ -38,10 +38,12 @@ const Header = ({ userId }: HeaderProps) => {
                         {
                             isAuthenticated ? (
                                 <Popover placement="bottom" content={
-                                    <Form action="/auth/logout" method="post">
-                                        <button className="header__btn__login" type="submit">
+                                    <Form className="form__actions__loggedIn" action="/auth/logout" method="post">
+                                        <Link to="/profile" className="header__btn__profile">Ir a mi perfíl</Link >
+                                        <button className="header__btn__logout" type="submit">
                                             Cerrar Sesión
                                         </button>
+                                        
                                     </Form>
                                 } trigger="hover">
                                     <button className="header__btn__login">Hola</button>
