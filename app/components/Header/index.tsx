@@ -46,7 +46,7 @@ const Header = ({ userId, name }: HeaderProps) => {
                                         </button>
                                         
                                     </Form>
-                                } trigger="hover">
+                                } trigger="click">
                                     <button className="header__btn__login">Hola {name}</button>
                                 </Popover>
                             ) : <Link to="/login" className="header__btn__login">Iniciar Sesión</Link >

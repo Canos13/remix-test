@@ -1,9 +1,12 @@
-
+@use "mixin.scss" as *;
 
 .shop__container{
     max-width: 1300px;
     margin: 0 auto;
     padding-bottom: 2rem;
+    /* @include tablet__1325{
+        width: 90%;
+    } */
     /* CARROUSEL PRINCIPAL */
     .shop__container__carrousel{
         width: 95%;
@@ -47,12 +50,16 @@
             margin: 0;
             text-align: center;
             padding: 1.65rem 0;
+            @include mobile__800{
+                font-size: 24px;
+            }
         }
 
         .shop__container__categories__images{
             display: flex;
             gap: 20px;
             padding: 16px 0;
+            justify-content: center;
 
             .shop__container__categories__link{
                 overflow: hidden;
@@ -65,6 +72,12 @@
                         transform: scale(1.05);
                         box-shadow: 1px 4px 12px -4px rgb(0, 0, 0, .2);
                     }
+                }
+            }
+            @include mobile__640{
+                flex-wrap: wrap;
+                .shop__container__categories__link{
+                    width: calc(50% - 20px);
                 }
             }
         }
@@ -81,6 +94,9 @@
                 border-radius: 20px;
                 padding: 6px 16px;
                 width: max-content;
+                @include mobile__640{
+                    font-size: 14px;
+                }
             }
         }
     }

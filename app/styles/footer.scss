@@ -1,5 +1,5 @@
 
-
+@use "mixin.scss" as *;
 .main__footer{
     background-color: #212121;
     .main__container__footer{
@@ -9,10 +9,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include tablet__1325{
+            width: 95%;
+        }
         .main__container__footer__shop{
             margin: 0;
             color: white;
             font-size: 20px;
+            @include mobile__640{
+                font-size: 14px;
+            }
         }
     }
 }

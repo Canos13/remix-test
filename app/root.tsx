@@ -46,7 +46,7 @@ export default function App() {
 				<div className="flex flex-col min-h-screen">
 					<Header userId={data.user?.id} name={data.user?.name} />
 					<section className="flex-grow">
-						<main className="mx-auto px-4 ">
+						<main className="mx-auto px-3">
 							<Outlet />
 						</main>
 					</section>
