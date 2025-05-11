@@ -48,6 +48,10 @@
     transform: scale(1);
     transition: all 0.2s ease-in-out;
     object-fit: cover;
+    @include mobile__640{
+        object-fit: contain;
+        height: 160px !important;
+    }
 }
 
 .product__card__item:hover .product__card__item__image {
