@@ -3,6 +3,8 @@ import { Link } from "@remix-run/react";
 import Carrousel from '../Carrousel'
 import type { Settings } from "react-slick";
 import MiniCart from "../Minicart";
+import { Popover } from "antd";
+import {LoginPopoverContent} from "../Login";
 
 
 const Header = () => {
@@ -30,7 +32,9 @@ const Header = () => {
                 </div>
                 <div className="header__actions">
                     <div>
+                    <Popover placement="bottom" content={LoginPopoverContent} trigger="hover">
                         <button className="header__btn__login">Iniciar Sesión</button>
+                    </Popover>
                     </div>
                     <MiniCart /> 
                 </div>

@@ -1,6 +1,10 @@
 
 
 .minicart__button{
+    display: flex;
+    gap: 8px;
+    color: white;
+    align-items: center;
     &::before{
         display: block;
         height: 24px;

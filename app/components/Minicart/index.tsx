@@ -15,7 +15,7 @@ const MiniCart = () => {
         <div className="mini-cart">
             <Badge  count={totalItems()} showZero={false} >
                 <button className='minicart__button'
-                    onClick={() => setOpen(true)} />
+                    onClick={() => setOpen(true)}>Mi Carrito</button>
             </Badge>
 
             <Drawer
