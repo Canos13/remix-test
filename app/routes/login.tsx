@@ -1,5 +1,5 @@
 import { ActionFunctionArgs, json, LoaderFunctionArgs, redirect } from '@remix-run/node';
-import { Form, useActionData, useNavigation } from '@remix-run/react';
+import { Form, useActionData, useNavigation, useSearchParams } from '@remix-run/react';
 import { login, createUserSession, getUserSession } from '~/services/auth.server';
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -33,6 +33,8 @@ export default function Login() {
     const actionData = useActionData<typeof action>();
     const navigation = useNavigation();
     const isSubmitting = navigation.state === 'submitting';
+    const [searchParams] = useSearchParams();
+    const redirectTo = searchParams.get('redirectTo') || '/profile';
 
     return (
         <div className="main__login flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -50,7 +52,7 @@ export default function Login() {
                 )}
 
                 <Form className="mt-8 space-y-6" method="post">
-                    <input type="hidden" name="redirectTo" value="/profile" />
+                    <input type="hidden" name="redirectTo" value={redirectTo} />
 
                     <div className="rounded-md shadow-sm space-y-4">
                         <div>

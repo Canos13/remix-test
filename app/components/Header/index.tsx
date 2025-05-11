@@ -6,9 +6,10 @@ import MiniCart from "../Minicart";
 import { Popover } from "antd";
 interface HeaderProps {
     userId?: string;
+    name?: string;
 }
 
-const Header = ({ userId }: HeaderProps) => {
+const Header = ({ userId, name }: HeaderProps) => {
     const isAuthenticated = !!userId;
 
     const config: Settings = {
@@ -30,7 +31,7 @@ const Header = ({ userId }: HeaderProps) => {
             <section className="container__header" >
                 <div>
                     <Link className="link__logo__header" to="/" prefetch="intent">
-                        <img className='logo__header' src="/arquivos/logo.png" alt="Logo" />
+                        <img className='logo__header' src="/arquivos/logo.png" alt="Logo" />  BrudiFarma
                     </Link>
                 </div>
                 <div className="header__actions">
@@ -46,7 +47,7 @@ const Header = ({ userId }: HeaderProps) => {
                                         
                                     </Form>
                                 } trigger="hover">
-                                    <button className="header__btn__login">Hola</button>
+                                    <button className="header__btn__login">Hola {name}</button>
                                 </Popover>
                             ) : <Link to="/login" className="header__btn__login">Iniciar Sesión</Link >
                         }

@@ -2,6 +2,7 @@ import { Drawer, Badge } from 'antd';
 import { useCartStore } from '../../context/cartStore';
 import { useState } from 'react';
 import ProductItem from './ProductItem';
+import { Link } from '@remix-run/react';
 
 const MiniCart = () => {
     const [open, setOpen] = useState(false);
@@ -45,9 +46,9 @@ const MiniCart = () => {
                         </div>
 
                         <div className="minicart__cart__actions">
-                            <button className="minicart__cart__checkout">
+                            <Link to="/checkout" className="minicart__cart__checkout">
                                 Finalizar Compra
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

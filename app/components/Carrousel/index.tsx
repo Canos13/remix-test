@@ -2,12 +2,12 @@ import { memo, useEffect, useState } from "react"
 const dynamicImport = () => import("react-slick");
 import type { Settings, default as ReactSlick } from "react-slick";
 
-const Carousel = memo((
-	{ children, className, config = { 
-			arrows: true, 
-			dots: true 
-		} 
-	}: { children: React.ReactNode, className: string, config?: Settings}) => {
+const Carousel = memo(({ 
+	children, className, config = { 
+		arrows: true, 
+		dots: true 
+	} 
+}: { children: React.ReactNode, className: string, config?: Settings}) => {
 
 	const [Slider, setSlider] = useState<typeof ReactSlick | null>(null);
 

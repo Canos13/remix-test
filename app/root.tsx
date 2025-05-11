@@ -10,13 +10,14 @@ import {
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 
 import "./tailwind.css";
-import Header from "./components/Header";
-
-import "./styles/main.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
-import { getUserSession } from "./services/auth.server";
+import "./styles/main.scss";
+
+import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { loadUserData } from "./loaders/user.loader";
+import { AuthInitializer } from "./components/AuthInitializer";
 
 export const links: LinksFunction = () => [
 	{
@@ -26,8 +27,8 @@ export const links: LinksFunction = () => [
 ];
 
 export async function loader({ request }: LoaderFunctionArgs) {
-	const session = await getUserSession(request);
-	return json({ userId: session?.userId });
+	const user = await loadUserData(request);
+  	return json({ user });
 }
 
 export default function App() {
@@ -41,8 +42,9 @@ export default function App() {
 				<Links />
 			</head>
 			<body className="font-inter">
+				<AuthInitializer />
 				<div className="flex flex-col min-h-screen">
-					<Header userId={data.userId} />
+					<Header userId={data.user?.id} name={data.user?.name} />
 					<section className="flex-grow">
 						<main className="mx-auto px-4 ">
 							<Outlet />

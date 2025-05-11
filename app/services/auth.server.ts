@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import { createCookieSessionStorage, redirect } from '@remix-run/node';
 
 // Mock user database
-const MOCK_USER = {
+export const MOCK_USER = {
     email: 'li_sergiocm@unca.edu.mx',
     passwordHash: bcrypt.hashSync('10', 10),
     id: '1',
