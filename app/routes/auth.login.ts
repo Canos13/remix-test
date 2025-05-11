@@ -11,9 +11,9 @@ export async function action({ request }: ActionFunctionArgs) {
         const { user } = await login(email, password);
         return createUserSession(user.id, redirectTo);
     } catch (error) {
-        return json({
+        return json({ 
             error: error instanceof Error ? error.message : 'Error desconocido',
             email
-        }, { status: 401 });
+          }, { status: 200 }); 
     }
 }

@@ -1,13 +1,16 @@
 
-import { Link } from "@remix-run/react";
+import { Form, Link, useLoaderData } from "@remix-run/react";
 import Carrousel from '../Carrousel'
 import type { Settings } from "react-slick";
 import MiniCart from "../Minicart";
 import { Popover } from "antd";
-import {LoginPopoverContent} from "../Login";
+interface HeaderProps {
+    userId?: string;
+}
 
+const Header = ({ userId }: HeaderProps) => {
+    const isAuthenticated = !!userId;
 
-const Header = () => {
     const config: Settings = {
         arrows: false,
         dots: false
@@ -32,11 +35,22 @@ const Header = () => {
                 </div>
                 <div className="header__actions">
                     <div>
-                    <Popover placement="bottom" content={LoginPopoverContent} trigger="hover">
-                        <button className="header__btn__login">Iniciar Sesión</button>
-                    </Popover>
+                        {
+                            isAuthenticated ? (
+                                <Popover placement="bottom" content={
+                                    <Form action="/auth/logout" method="post">
+                                        <button className="header__btn__login" type="submit">
+                                            Cerrar Sesión
+                                        </button>
+                                    </Form>
+                                } trigger="hover">
+                                    <button className="header__btn__login">Hola</button>
+                                </Popover>
+                            ) : <Link to="/login" className="header__btn__login">Iniciar Sesión</Link >
+                        }
+
                     </div>
-                    <MiniCart /> 
+                    <MiniCart />
                 </div>
             </section>
         </header>

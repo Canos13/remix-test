@@ -1,11 +1,13 @@
 import {
+	json,
 	Links,
 	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 
 import "./tailwind.css";
 import Header from "./components/Header";
@@ -13,6 +15,7 @@ import Header from "./components/Header";
 import "./styles/main.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
+import { getUserSession } from "./services/auth.server";
 
 export const links: LinksFunction = () => [
 	{
@@ -21,7 +24,13 @@ export const links: LinksFunction = () => [
 	},
 ];
 
+export async function loader({ request }: LoaderFunctionArgs) {
+	const session = await getUserSession(request);
+	return json({ userId: session?.userId });
+}
+
 export default function App() {
+	const data = useLoaderData<typeof loader>();
 	return (
 		<html lang="en">
 			<head>
@@ -30,14 +39,14 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className="font-inter"> 
-				<Header />
-				<main className="mx-auto px-4"> 
+			<body className="font-inter">
+				<Header userId={data.userId} />
+				<main className="mx-auto px-4">
 					<Outlet />
 				</main>
 				<ScrollRestoration />
 				<Scripts />
-				
+
 			</body>
 		</html>
 	);
