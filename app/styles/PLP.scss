@@ -1,3 +1,5 @@
+@use "mixin.scss" as *;
+
 .filters__category {
     width: 25%;
 }
@@ -13,6 +15,9 @@
     justify-content: start;
     gap: 30px 5%;
     width: 100%;
+    @include mobile__800{
+        gap: 30px;
+    }
 }
 
 .product__card__item {
@@ -21,6 +26,9 @@
     border-radius: 12px;
     border: 1px solid #cecece;
     box-shadow: 1px 4px 12px -4px rgb(0, 0, 0, .2);
+    @include mobile__800{
+        width: calc(50% - 15px);
+    }
 }
 
 .product__card__item__imageContainer {
@@ -64,6 +72,12 @@
     height: calc(1.2em * 2);
     white-space: normal;
     font-weight: 600;
+    @include mobile__1024{
+        font-size: 20px;
+    }
+    @include mobile__640{
+        font-size: 16px;
+    }
 }
 
 .product__card__item__info__stock {
@@ -138,6 +152,9 @@
 .product__list__main{
     display: flex;
     gap: 45px;
+    @include mobile__1024{
+        flex-direction: column;
+    }
     .product__list__filter{
         min-width: 200px;
         display: flex;
