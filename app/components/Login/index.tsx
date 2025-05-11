@@ -2,7 +2,6 @@
 import { Form, useNavigation } from '@remix-run/react';
 import { useState } from 'react';
 import { Button, Input, Space, message } from 'antd';
-import type { ActionFunctionArgs } from '@remix-run/node';
 
 export const LoginPopoverContent = () => {
     const navigation = useNavigation();

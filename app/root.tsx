@@ -16,6 +16,7 @@ import "./styles/main.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import { getUserSession } from "./services/auth.server";
+import Footer from "./components/Footer";
 
 export const links: LinksFunction = () => [
 	{
@@ -40,10 +41,15 @@ export default function App() {
 				<Links />
 			</head>
 			<body className="font-inter">
-				<Header userId={data.userId} />
-				<main className="mx-auto px-4">
-					<Outlet />
-				</main>
+				<div className="flex flex-col min-h-screen">
+					<Header userId={data.userId} />
+					<section className="flex-grow">
+						<main className="mx-auto px-4 ">
+							<Outlet />
+						</main>
+					</section>
+					<Footer />
+				</div>
 				<ScrollRestoration />
 				<Scripts />
 
