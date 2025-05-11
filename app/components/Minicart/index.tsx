@@ -12,9 +12,20 @@ const MiniCart = () => {
         totalPrice,
     } = useCartStore();
 
+    const handleCloseMinicart = (): void => {
+        const buttonClose: HTMLButtonElement | null = document.querySelector(
+            ".minicart__drawer .ant-drawer-header-title button.ant-drawer-close"
+        );
+        if (buttonClose) {
+            setTimeout(() => {
+                buttonClose?.click()
+            }, 100);
+        }
+    }
+
     return (
         <div className="mini-cart">
-            <Badge  count={totalItems()} showZero={false} >
+            <Badge count={totalItems()} showZero={false} >
                 <button className='minicart__button'
                     onClick={() => setOpen(true)}>Mi Carrito</button>
             </Badge>
@@ -30,9 +41,9 @@ const MiniCart = () => {
                 <div className='minicart__content' >
                     <div className='minicart__content__list__items'>
                         {
-                            cart.map( item => <ProductItem
+                            cart.map(item => <ProductItem
                                 key={item.id}
-                               {...item}
+                                {...item}
                             />)
                         }
                     </div>
@@ -46,7 +57,7 @@ const MiniCart = () => {
                         </div>
 
                         <div className="minicart__cart__actions">
-                            <Link to="/checkout" className="minicart__cart__checkout">
+                            <Link onClick={handleCloseMinicart} to="/checkout" className="minicart__cart__checkout">
                                 Finalizar Compra
                             </Link>
                         </div>
