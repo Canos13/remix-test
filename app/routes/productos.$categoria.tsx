@@ -64,7 +64,7 @@ export default function PLP() {
                         ? <Popover placement="bottom" content={ <Filters slug={slug} allCategories={allCategories} /> } trigger="click">
                               <button className="filters__mobile__btn">Filtros</button>
                            </Popover> 
-                        : <Filters allCategories={allCategories} />
+                        : <Filters slug={slug} allCategories={allCategories} />
                 }
 
                 <div className="product__list__section__container">

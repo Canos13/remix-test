@@ -9,7 +9,7 @@ export const MOCK_USER = {
     name: 'Sergio Cano'
 };
 
-// Session storage
+
 export const sessionStorage = createCookieSessionStorage({
     cookie: {
         name: '__session',
@@ -36,7 +36,7 @@ export async function login(email: string, password: string) {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 500));
 
-    // Validate credentials
+    
     if (email !== MOCK_USER.email) {
         throw new Error('Usuario no encontrado');
     }
