@@ -10,7 +10,7 @@ export interface User {
 interface AuthState {
     user: User | null;
     setUser: (user: User) => void;
-    clearUser: () => void;
+    clearUser: VoidFunction;
     isAuthenticated: () => boolean;
 }
 

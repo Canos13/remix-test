@@ -1,6 +1,5 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 import { AllCategories } from "~/routes/productos._index";
-
 
 const Filters = ({allCategories, slug = ""}: {allCategories: AllCategories[], slug?: string}) => {
    

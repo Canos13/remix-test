@@ -11,7 +11,7 @@ interface CartStore {
     addToCart: (product: Product) => void;
     removeFromCart: (productId: number) => void;
     updateQuantity: (productId: number, quantity: number) => void;
-    clearCart: () => void;
+    clearCart: VoidFunction;
     totalItems: () => number;
     totalPrice: () => number;
 }

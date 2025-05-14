@@ -2,7 +2,7 @@ import { CartItem, useCartStore } from "~/context/cartStore";
 import { Product } from "~/context/productStore"
 import { showMessage } from "~/utils/messages"
 import { useProductDiscount } from '~/hook/useProductDiscount';
-import { Badge, InputNumber } from "antd";
+import { Badge, InputNumber, Tooltip } from "antd";
 
 const ProductItem = (item: CartItem) => {
     const { hasDiscount, discount, } = useProductDiscount(item);
@@ -50,11 +50,12 @@ const ProductItem = (item: CartItem) => {
                 </div>
             </div>
             <div>
-                <button
-                    className='minicart__delete__item'
-                    onClick={() => handleDeleteItem(item.id)}
-                >
-                </button>
+                <Tooltip title="Eliminar">
+                    <button
+                        className='minicart__delete__item'
+                        onClick={() => handleDeleteItem(item.id)}
+                    > </button>
+                </Tooltip>
             </div>
         </div>
     )

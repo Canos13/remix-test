@@ -1,4 +1,4 @@
-// app/helpers/auth.server.ts
+
 import { redirect } from '@remix-run/node';
 import { getUserSession } from '~/services/auth.server';
 
