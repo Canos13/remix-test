@@ -1,10 +1,9 @@
 import { LoaderFunctionArgs, json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { Tabs } from 'antd';
-import { Card } from 'react-bootstrap';
 import MyAccount from '~/components/Profile/MyAccount';
 import { useAuthStore } from '~/context/authStore';
-import { requireAuth } from '~/services/auth.server';
+import { requireAuth } from '~/controller/auth.server';
 
 export async function loader({ request }: LoaderFunctionArgs) {
     const userId = await requireAuth(request);

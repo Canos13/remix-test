@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { dummyData, Product, type Category } from "../context/productStore";
+import { dummyData, type Category } from "../context/productStore";
 import ProductCard from "~/components/Product";
 import Filters from "~/components/Filters";
 import { AllCategories } from "./productos._index";
@@ -42,8 +42,6 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function PLP() {
     const {category,allCategories, slug} = useLoaderData<typeof loader>() as dataLoader;
-
-
     const { isWidth } = useWidth(1024)
 
     return (

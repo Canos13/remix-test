@@ -1,14 +1,12 @@
 import bcrypt from 'bcryptjs';
-import { createCookieSessionStorage, redirect } from '@remix-run/node';
+import { createCookieSessionStorage, redirect,  } from '@remix-run/node';
 
-// Mock user database
 export const MOCK_USER = {
     email: 'li_sergiocm@unca.edu.mx',
     passwordHash: bcrypt.hashSync('10', 10),
     id: '1',
     name: 'Sergio Cano'
 };
-
 
 export const sessionStorage = createCookieSessionStorage({
     cookie: {
@@ -34,7 +32,7 @@ export async function createUserSession(userId: string, redirectTo: string) {
 
 export async function login(email: string, password: string) {
     // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 200));
 
     
     if (email !== MOCK_USER.email) {
@@ -72,6 +70,20 @@ export async function requireAuth(request: Request) {
 
     if (!session) {
         throw redirect('/');
+    }
+
+    return session.userId;
+}
+
+export async function requireAuthAndRedirect(
+    request: Request,
+    redirectTo: string = new URL(request.url).pathname
+) {
+    const session = await getUserSession(request);
+
+    if (!session?.userId) {
+        const searchParams = new URLSearchParams([['redirectTo', redirectTo]]);
+        throw redirect(`/login?${searchParams}`);
     }
 
     return session.userId;

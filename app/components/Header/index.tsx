@@ -1,5 +1,5 @@
 
-import { Form, Link, useLoaderData } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 import Carrousel from '../Carrousel'
 import type { Settings } from "react-slick";
 import MiniCart from "../Minicart";

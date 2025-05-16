@@ -1,12 +1,15 @@
 
 import { LoaderFunctionArgs, json } from '@remix-run/node';
-import { requireAuth } from '~/utils/auth/auth.server';
 import { message, Steps } from 'antd';
 import { useState } from 'react';
 import Cart from '~/components/Checkout/Cart';
+import Info from '~/components/Checkout/Info';
+import Shipping from '~/components/Checkout/Shipping';
+import { requireAuthAndRedirect } from '~/controller/auth.server';
+
 
 export async function loader({ request }: LoaderFunctionArgs) {
-    const userId = await requireAuth(request);
+    const userId = await requireAuthAndRedirect(request);
     return json({ userId });
 }
 
@@ -16,12 +19,12 @@ const steps = [
         content: (next: VoidFunction) => <Cart onNext={next} />,
     },
     {
-        title: 'Informacion',
-        content:  (next: VoidFunction, prev: VoidFunction) => <h1>Informacion</h1>,
+        title: 'Información',
+        content: (next: VoidFunction, prev: VoidFunction) => <Info onNext={next} onPrev={prev} />,
     },
     {
         title: 'Envio y Entrega',
-        content:(next: VoidFunction, prev: VoidFunction) => <h1>Envio y Entrega</h1>,
+        content: (next: VoidFunction, prev: VoidFunction) => <Shipping onNext={next} onPrev={prev} />,
     },
     {
         title: 'Pago',
@@ -43,9 +46,7 @@ const Checkout: React.FC = () => {
         <section className='general__container' >
             <Steps className='steps__checkout' current={current} items={items} />
             <div style={contentStyle}>
-                {
-                    steps[current].content( next, prev, done )
-                }
+                { steps[current].content( next, prev, done ) }
             </div>
         </section>
     );
