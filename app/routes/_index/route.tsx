@@ -1,6 +1,6 @@
 
 import type { MetaFunction } from "@remix-run/node";
-import Carrousel from '../components/Carrousel'
+import Carrousel from '../../components/Carrousel'
 import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {

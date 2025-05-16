@@ -1,16 +1,10 @@
 import { LoaderFunctionArgs } from '@remix-run/node';
-import { getUserSession } from '~/controller/auth.server';
 import { getAddress } from '~/controller/shipping.server';
+import { protectedLoader } from '~/middleware/auth.server';
 
-export async function loader({ request }: LoaderFunctionArgs) {
-    const session = await getUserSession(request);
-
-    if (!session) {
-        return Response.json({
-            code: 401
-        });
-    }
-
-    const users = await getAddress();
-    return Response.json(users);
+export async function loader(args: LoaderFunctionArgs) {
+     return protectedLoader(args, async (userId, { request }) => {   
+        const users = await getAddress();
+        return Response.json(users);
+    });
 }

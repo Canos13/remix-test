@@ -1,6 +1,6 @@
-import { ActionFunctionArgs, json, LoaderFunctionArgs, redirect } from '@remix-run/node';
+import { ActionFunctionArgs, LoaderFunctionArgs, redirect } from '@remix-run/node';
 import { Form, useActionData, useNavigation, useSearchParams } from '@remix-run/react';
-import { createUserSession, getUserSession, login } from '~/controller/auth.server';
+import { createUserSession, getUserIdSession, login } from '~/controller/auth.server';
 
 export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.formData();
@@ -20,7 +20,7 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export async function loader({ request }: LoaderFunctionArgs) {
-    const session = await getUserSession(request);
+    const session = await getUserIdSession(request);
 
     if (session?.userId) {
         return redirect('/profile');

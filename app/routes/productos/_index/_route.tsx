@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
-import { dummyData, Product } from "../context/productStore";
+import { dummyData, Product } from "../../../context/productStore";
 import ProductCard from "~/components/Product";
 import Filters from "~/components/Filters";
 import { useWidth } from "~/hook/useViewport";

@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { AllCategories } from "~/routes/productos._index";
+import { AllCategories } from "~/routes/productos/_index/_route";
 
 const Filters = ({allCategories, slug = ""}: {allCategories: AllCategories[], slug?: string}) => {
    

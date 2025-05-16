@@ -51,9 +51,6 @@ export async function getUserData(request: Request) {
 }
 
 export async function login(email: string, password: string) {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 200));
-
 
     if (email !== MOCK_USER.email) {
         throw new Error('Usuario no encontrado');
@@ -73,7 +70,7 @@ export async function login(email: string, password: string) {
     };
 }
 
-export async function getUserSession(request: Request) {
+export async function getUserIdSession(request: Request) {
     const session = await sessionStorage.getSession(
         request.headers.get('Cookie')
     );
@@ -86,7 +83,7 @@ export async function getUserSession(request: Request) {
 }
 
 export async function requireAuth(request: Request) {
-    const session = await getUserSession(request);
+    const session = await getUserIdSession(request);
 
     if (!session) {
         throw redirect('/');
@@ -99,7 +96,7 @@ export async function requireAuthAndRedirect(
     request: Request,
     redirectTo: string = new URL(request.url).pathname
 ) {
-    const session = await getUserSession(request);
+    const session = await getUserIdSession(request);
 
     if (!session?.userId) {
         const searchParams = new URLSearchParams([['redirectTo', redirectTo]]);

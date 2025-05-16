@@ -2,9 +2,10 @@ import { useAddressStore } from "~/context/addressStore"
 import { CheckoutCurrentStep } from "./Cart"
 import Summary from "./Summary"
 import { useEffect } from "react"
+import { Skeleton } from "antd"
 
 const Shipping = ({onNext,onPrev}: CheckoutCurrentStep) => {
-    const { address, error, getAddress, loading } = useAddressStore()
+    const { address, getAddress, loading } = useAddressStore()
 
     useEffect(() => {
         if(!address.length){
@@ -19,7 +20,7 @@ const Shipping = ({onNext,onPrev}: CheckoutCurrentStep) => {
     return (
         <div className="cart__checkout__general" >
             <div className="cart__checkout__items">
-                info shipping
+                {  loading && <Skeleton active /> }
             </div>
             <Summary onNext={onNext} onPrev={onPrev} />
         </div>

@@ -1,10 +1,10 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { dummyData, type Category } from "../context/productStore";
+import { dummyData, type Category } from "../../../context/productStore";
 import ProductCard from "~/components/Product";
 import Filters from "~/components/Filters";
-import { AllCategories } from "./productos._index";
+import { AllCategories } from "../_index/_route";
 import { useWidth } from "~/hook/useViewport";
 import { Popover } from "antd";
 
