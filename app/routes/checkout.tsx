@@ -10,7 +10,7 @@ import { requireAuthAndRedirect } from '~/controller/auth.server';
 
 export async function loader({ request }: LoaderFunctionArgs) {
     const userId = await requireAuthAndRedirect(request);
-    return json({ userId });
+    return Response.json({ userId });
 }
 
 const steps = [

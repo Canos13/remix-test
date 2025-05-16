@@ -28,7 +28,7 @@ export async function loader() {
         name: category.name
     }));
 
-    return json({ allProducts, allCategories });
+    return Response.json({ allProducts, allCategories });
 }
 
 export default function PLP() {

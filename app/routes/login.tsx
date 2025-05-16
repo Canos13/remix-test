@@ -10,9 +10,9 @@ export async function action({ request }: ActionFunctionArgs) {
 
     try {
         const { user } = await login(email, password);
-        return createUserSession(user.id, redirectTo);
+        return createUserSession(user, redirectTo);
     } catch (error) {
-        return json({
+        return Response.json({
             error: error instanceof Error ? error.message : 'Error desconocido',
             email
         }, { status: 401 });
@@ -26,7 +26,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
         return redirect('/profile');
     }
 
-    return json({});
+    return Response.json({});
 }
 
 export default function Login() {

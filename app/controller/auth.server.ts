@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import { createCookieSessionStorage, redirect,  } from '@remix-run/node';
+import { createCookieSessionStorage, redirect, } from '@remix-run/node';
 
 export const MOCK_USER = {
     email: 'li_sergiocm@unca.edu.mx',
@@ -19,9 +19,17 @@ export const sessionStorage = createCookieSessionStorage({
     },
 });
 
-export async function createUserSession(userId: string, redirectTo: string) {
+type UserSession = {
+    id: string;
+    email: string;
+    name: string;
+};
+
+export async function createUserSession(user: UserSession, redirectTo: string) {
     const session = await sessionStorage.getSession();
-    session.set('userId', userId);
+    session.set('userId', user.id);
+    session.set('userEmail', user.email);
+    session.set('userName', user.name);
 
     return redirect(redirectTo, {
         headers: {
@@ -30,11 +38,23 @@ export async function createUserSession(userId: string, redirectTo: string) {
     });
 }
 
+export async function getUserData(request: Request) {
+    const session = await sessionStorage.getSession(
+        request.headers.get('Cookie')
+    );
+
+    return {
+        id: session.get('userId'),
+        email: session.get('userEmail'),
+        name: session.get('userName'),
+    } as UserSession;
+}
+
 export async function login(email: string, password: string) {
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 200));
 
-    
+
     if (email !== MOCK_USER.email) {
         throw new Error('Usuario no encontrado');
     }

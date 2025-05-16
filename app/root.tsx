@@ -16,8 +16,8 @@ import "./styles/main.scss";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { loadUserData } from "./loaders/user.loader";
 import { AuthInitializer } from "./components/AuthInitializer";
+import { getUserData } from "./controller/auth.server";
 
 export const links: LinksFunction = () => [
 	{
@@ -27,8 +27,8 @@ export const links: LinksFunction = () => [
 ];
 
 export async function loader({ request }: LoaderFunctionArgs) {
-	const user = await loadUserData(request);
-  	return json({ user });
+	const userData = await getUserData(request);
+	return Response.json({ user: userData });
 }
 
 export default function App() {

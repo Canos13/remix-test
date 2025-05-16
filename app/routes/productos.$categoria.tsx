@@ -37,7 +37,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
         throw new Response("Categoría no encontrada", { status: 404 });
     }
 
-    return json({category,allCategories, slug});
+    return Response.json({category,allCategories, slug});
 }
 
 export default function PLP() {
