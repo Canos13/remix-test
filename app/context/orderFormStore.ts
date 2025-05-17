@@ -13,16 +13,23 @@ export type orderFormType = {
 type OrderFormState = {
     orderForm: orderFormType;
     updateOrderForm: (orderFormData: orderFormType) => void;
-    
+    clearOrderForm: VoidFunction;
 };
 
-export const useOrderFormStore = create<OrderFormState>( set => ({
+export const useOrderFormStore = create<OrderFormState>(set => ({
     orderForm: {
         items: null,
         clientProfileData: null,
         shippingData: null
     },
-    updateOrderForm: (orderFormData) => {
+    updateOrderForm: orderFormData => {
         set({ orderForm: orderFormData });
     },
+    clearOrderForm: () => set({
+        orderForm: {
+            items: null,
+            clientProfileData: null,
+            shippingData: null
+        }
+    }),
 }));

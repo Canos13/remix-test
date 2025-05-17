@@ -1,4 +1,4 @@
-// app/components/AuthInitializer.tsx
+
 import { useEffect } from 'react';
 import { useLoaderData } from '@remix-run/react';
 import { useAuthStore } from '~/context/authStore';

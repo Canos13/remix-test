@@ -20,6 +20,10 @@ const Cart = ({ onNext }: CheckoutCurrentStep) => {
             items: cart
         })
     }, [cart])
+
+    useEffect(() => {
+        console.log({orderForm})
+    }, [])
     
     return (
         <div className="cart__checkout__general" >

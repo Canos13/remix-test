@@ -56,7 +56,7 @@ export default function PLP() {
                 
 
                 <div className="product__list__section__container">
-                    {allProducts.map((product) => (
+                    {allProducts.map(product=> (
                         <ProductCard
                             key={product.name}
                             product={product}

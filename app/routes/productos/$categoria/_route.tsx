@@ -31,8 +31,6 @@ export async function loader({ params }: LoaderFunctionArgs) {
         name: category.name
     }));
 
-    console.log({allCategories})
-
     if (!category) {
         throw new Response("Categoría no encontrada", { status: 404 });
     }

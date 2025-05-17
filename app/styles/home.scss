@@ -108,4 +108,25 @@
             border-radius: 20px;
         }
     }
+
+    .shop__main__products__slider{
+        padding: 1rem 0;
+        padding-bottom: 3rem;
+
+        .shop__main__carrousel__products{
+            .slick-prev:before, .slick-next:before{
+                color: black;
+            }
+            .slick-prev{
+                left: 0;
+            }
+            .slick-next{
+                right: 0;
+            }
+            .product__card__item{
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+    }
 }

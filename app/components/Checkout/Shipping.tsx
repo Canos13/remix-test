@@ -41,10 +41,13 @@ const Shipping = ({ onNext, onPrev }: CheckoutCurrentStep) => {
     return (
         <div className="cart__checkout__general" >
             <div className="cart__checkout__items">
-                {loading && <Skeleton active />}
+               
 
                 <div className="checkout__address__list">
                     <div>Mis direcciones</div>
+                    {   
+                        loading && <Skeleton active />  
+                    }
                     {
                         address.map(address => {
                             return <div onClick={() =>handleSelectAddress(address)} key={address.id} className={`checkout__address__item ${handleCheckedAddress(address)}`} >

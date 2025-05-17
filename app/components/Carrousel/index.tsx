@@ -3,7 +3,9 @@ const dynamicImport = () => import("react-slick");
 import type { Settings, default as ReactSlick } from "react-slick";
 
 const Carousel = memo(({ 
-	children, className, config = { 
+	children, 
+	className, 
+	config = { 
 		arrows: true, 
 		dots: true 
 	} 
