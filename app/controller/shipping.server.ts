@@ -3,6 +3,7 @@ import { Address } from "~/context/addressStore";
 let mockAddresses: Address[] = [
     {
         id: '1',
+        number: "12",
         name: 'Casa',
         street: 'Av. Principal 123',
         city: 'Ciudad de México',
@@ -13,6 +14,7 @@ let mockAddresses: Address[] = [
     },
     {
         id: '2',
+        number: "12",
         name: 'Oficina',
         street: 'Paseo de la Reforma 505',
         city: 'Ciudad de México',

@@ -54,7 +54,7 @@ const ProductItem = (item: CartItem) => {
                     <button
                         className='minicart__delete__item'
                         onClick={() => handleDeleteItem(item.id)}
-                    > </button>
+                    ></button>
                 </Tooltip>
             </div>
         </div>

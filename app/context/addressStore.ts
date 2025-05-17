@@ -3,6 +3,7 @@ import { create } from 'zustand';
 
 export type Address = {
     id: string,
+    number: string,
     name: string,
     street: string,
     city: string,
@@ -19,7 +20,7 @@ type AddressState = {
     getAddress: () => Promise<void>;
 };
 
-export const useAddressStore = create<AddressState>((set) => ({
+export const useAddressStore = create<AddressState>( set => ({
     address: [],
     loading: false,
     error: null,

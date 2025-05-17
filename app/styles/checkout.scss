@@ -161,6 +161,39 @@
                 border: 1px solid #E5E5E5;
                 background: #E5E5E5;
             }
+
+
+            .checkout__address__list{
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                .checkout__address__item{
+                    cursor: pointer;
+                    display: flex;
+                    gap: 10px;
+                    align-items: start;
+                    justify-content: start;
+                    padding: 10px;
+                    border-radius: 20px;
+                    &::before{
+                        display: block;
+                        height: 24px;
+                        content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiPjwvZz48ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvZz48ZyBpZD0iU1ZHUmVwb19pY29uQ2FycmllciI+IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTIgMTkuNUMxNi4xNDIxIDE5LjUgMTkuNSAxNi4xNDIxIDE5LjUgMTJDMTkuNSA3Ljg1Nzg2IDE2LjE0MjEgNC41IDEyIDQuNUM3Ljg1Nzg2IDQuNSA0LjUgNy44NTc4NiA0LjUgMTJDNC41IDE2LjE0MjEgNy44NTc4NiAxOS41IDEyIDE5LjVaTTEyIDIxQzE2Ljk3MDYgMjEgMjEgMTYuOTcwNiAyMSAxMkMyMSA3LjAyOTQ0IDE2Ljk3MDYgMyAxMiAzQzcuMDI5NDQgMyAzIDcuMDI5NDQgMyAxMkMzIDE2Ljk3MDYgNy4wMjk0NCAyMSAxMiAyMVoiIGZpbGw9IiMwODAzNDEiPjwvcGF0aD4gPC9nPjwvc3ZnPg==");
+                    }
+                }
+                .checkout__address__item__active{
+                    background-color: #E5E5E5;
+                    &::before{
+                        display: block;
+                        height: 24px;
+                        content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiPjwvZz48ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvZz48ZyBpZD0iU1ZHUmVwb19pY29uQ2FycmllciI+IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTIgMTkuNUMxNi4xNDIxIDE5LjUgMTkuNSAxNi4xNDIxIDE5LjUgMTJDMTkuNSA3Ljg1Nzg2IDE2LjE0MjEgNC41IDEyIDQuNUM3Ljg1Nzg2IDQuNSA0LjUgNy44NTc4NiA0LjUgMTJDNC41IDE2LjE0MjEgNy44NTc4NiAxOS41IDEyIDE5LjVaTTEyIDIxQzE2Ljk3MDYgMjEgMjEgMTYuOTcwNiAyMSAxMkMyMSA3LjAyOTQ0IDE2Ljk3MDYgMyAxMiAzQzcuMDI5NDQgMyAzIDcuMDI5NDQgMyAxMkMzIDE2Ljk3MDYgNy4wMjk0NCAyMSAxMiAyMVoiIGZpbGw9IiMwODAzNDEiPjwvcGF0aD4gPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNS4yNSIgZmlsbD0iIzA4MDM0MSI+PC9jaXJjbGU+IDwvZz48L3N2Zz4=");
+                    }
+                }
+
+                .checkout__address__info{
+                    text-align: start;
+                }
+            }
         }
 
         .cart__checkout__summary {

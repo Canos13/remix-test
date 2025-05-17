@@ -41,10 +41,12 @@ const MiniCart = () => {
                 <div className='minicart__content' >
                     <div className='minicart__content__list__items'>
                         {
-                            cart.map(item => <ProductItem
-                                key={item.id}
-                                {...item}
-                            />)
+                            cart.map(item => 
+                                <ProductItem
+                                    key={item.id}
+                                    {...item}
+                                />
+                            )
                         }
                     </div>
 
