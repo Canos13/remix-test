@@ -126,6 +126,9 @@
             .product__card__item{
                 width: 80%;
                 margin: 0 auto;
+                @include mobile__640{
+                    width: 90%;
+                }
             }
         }
     }

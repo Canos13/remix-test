@@ -137,6 +137,9 @@
 .product__item__not__availability {
     background-color: #606062;
     cursor: text !important;
+    @include mobile__800{
+        font-size: 14px;
+    }
 }
 
 
