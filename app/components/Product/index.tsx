@@ -7,8 +7,9 @@ import { useProductDiscount } from '~/hook/useProductDiscount';
 import { useState } from 'react';
 import ProductImage from '../global/ProductImage';
 import ProductStock from '../global/ProductStock';
+import ProductPrice from '../global/ProductPrice';
 
-const ProductCard = ({ product }: { product: Product, }) => {
+const ProductCard = ({ product }: { product: Product }) => {
     const addToCart = useCartStore(state => state.addToCart);
     const { hasDiscount, discount, } = useProductDiscount(product);
 
@@ -41,10 +42,11 @@ const ProductCard = ({ product }: { product: Product, }) => {
                     <h3 className="product__card__item__info__productName">{product?.name}</h3>
                     <ProductStock stock={product.stock} /> 
 
-                    <div className='product__container__prices'>
-                        <span className={`font-bold product__price ${hasDiscount ? "product__price__hasDiscount" : ""}`}>${product?.price}</span>
-                        {hasDiscount && <span className="product__listPrice">${product?.listPrice}</span>}
-                    </div>
+                    <ProductPrice
+                        hasDiscount={hasDiscount}
+                        listPrice={product.listPrice}
+                        price={product.price}
+                    />
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
@@ -64,12 +66,38 @@ const ProductCard = ({ product }: { product: Product, }) => {
                 </div>
             </div>
 
-            <Modal destroyOnClose title={product?.name} onCancel={handleCancel} open={isModalOpen} className='modal__product__item' okText="Cerrar" onOk={handleOk}>
-                <ProductImage 
-                    discount={discount}
-                    product={product}
-                    hasDiscount={hasDiscount}
-                />
+            <Modal 
+                destroyOnClose 
+                title={product?.name} 
+                onCancel={handleCancel} 
+                open={isModalOpen} 
+                className={`modal__product__item ${!product?.availability ? "modal__product__item__not__availability" : ""}`}
+                okText="Agregar al carrito" 
+                cancelText="Cerrar"
+                onOk={handleOk}
+            >
+                <div className='main__modal__product__item'>
+                    <ProductImage 
+                        discount={discount}
+                        product={product}
+                        hasDiscount={hasDiscount}
+                    />
+
+                    <div>
+                        <div>
+                            <ProductPrice
+                                hasDiscount={hasDiscount}
+                                listPrice={product.listPrice}
+                                price={product.price}
+                            />
+                            <ProductStock stock={product.stock} /> 
+                        </div>
+                        <div>
+                            <p>{product.description}</p>
+                        </div>
+                    
+                    </div>
+                </div>
             </Modal>
         </>
     );
