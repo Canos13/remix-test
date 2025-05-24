@@ -123,6 +123,12 @@
     justify-content: center;
 }
 
+.product__item__availability{
+    @include mobile__800{
+        font-size: 12px;
+    }
+}
+
 .product__item__availability:hover {
     background-color: #0a41b7;
 }
@@ -138,7 +144,7 @@
     background-color: #606062;
     cursor: text !important;
     @include mobile__800{
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
