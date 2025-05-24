@@ -69,12 +69,12 @@ const ProductCard = ({ product }: { product: Product }) => {
             <Modal 
                 destroyOnClose 
                 title={product?.name} 
+                cancelText="Cerrar"
                 onCancel={handleCancel} 
                 open={isModalOpen} 
                 className={`modal__product__item ${!product?.availability ? "modal__product__item__not__availability" : ""}`}
                 okText="Agregar al carrito" 
-                cancelText="Cerrar"
-                onOk={handleOk}
+                onOk={()=> handleAddToCart(product)}
             >
                 <div className='main__modal__product__item'>
                     <ProductImage 
@@ -83,19 +83,19 @@ const ProductCard = ({ product }: { product: Product }) => {
                         hasDiscount={hasDiscount}
                     />
 
-                    <div>
-                        <div>
-                            <ProductPrice
-                                hasDiscount={hasDiscount}
-                                listPrice={product.listPrice}
-                                price={product.price}
-                            />
-                            <ProductStock stock={product.stock} /> 
-                        </div>
-                        <div>
-                            <p>{product.description}</p>
-                        </div>
-                    
+                    <div className='info__modal__product__item'>
+                        
+                        <ProductPrice
+                            hasDiscount={hasDiscount}
+                            listPrice={product.listPrice}
+                            price={product.price}
+                        />
+                        <ProductStock stock={product.stock} /> 
+                      
+                        <p className='info__modal__product__item__description'>
+                            {product.description}
+                        </p>
+                       
                     </div>
                 </div>
             </Modal>

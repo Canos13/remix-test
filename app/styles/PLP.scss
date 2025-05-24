@@ -217,12 +217,29 @@
 }
 
 .modal__product__item {
-    .main__modal__product__item{
+    .main__modal__product__item {
         display: flex;
         justify-content: center;
         gap: 2rem;
         align-items: center;
+
+        .info__modal__product__item {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            gap: 1rem;
+            align-items: start;
+            .info__modal__product__item__description{
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
     }
+
+    .ant-modal-title {
+        padding-right: 23px;
+    }
+
     .ant-modal-footer {
         text-align: center;
         display: flex;
@@ -232,18 +249,20 @@
 
         .ant-btn-primary {
             margin: 0 !important;
-            span{
+
+            span {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 6px;
+
                 &::before {
                     width: 18px;
                     height: 18px;
                     display: block;
                     content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMThweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiPjwvZz48ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvZz48ZyBpZD0iU1ZHUmVwb19pY29uQ2FycmllciI+IDxwYXRoIGQ9Ik0yMSA1TDE5IDEySDcuMzc2NzFNMjAgMTZIOEw2IDNIM00xMS41IDdMMTMuNSA5TTEzLjUgOUwxNS41IDdNMTMuNSA5VjNNOSAyMEM5IDIwLjU1MjMgOC41NTIyOCAyMSA4IDIxQzcuNDQ3NzIgMjEgNyAyMC41NTIzIDcgMjBDNyAxOS40NDc3IDcuNDQ3NzIgMTkgOCAxOUM4LjU1MjI4IDE5IDkgMTkuNDQ3NyA5IDIwWk0yMCAyMEMyMCAyMC41NTIzIDE5LjU1MjMgMjEgMTkgMjFDMTguNDQ3NyAyMSAxOCAyMC41NTIzIDE4IDIwQzE4IDE5LjQ0NzcgMTguNDQ3NyAxOSAxOSAxOUMxOS41NTIzIDE5IDIwIDE5LjQ0NzcgMjAgMjBaIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48L3BhdGg+IDwvZz48L3N2Zz4=");
                 }
-            } 
+            }
         }
 
         .ant-btn {
